@@ -5,3 +5,6 @@ Full-Stack AI Image Generation and community showcase website using React, Mongo
 Check the website out here: https://vashakmadze.github.io/ai-image-generation/
 
 Visit Server Repository here: https://github.com/Vashakmadze/ai-image-generation-server
+
+![GIF SHOWCASE](https://github.com/Vashakmadze/ai-image-generation-server/blob/main/generator.gif "WEBSITE SHOWCASE")
+
