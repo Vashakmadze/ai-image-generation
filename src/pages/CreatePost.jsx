@@ -6,24 +6,24 @@ import { FormFields, Loader } from '../components';
 
 const CreatePost = () => {
   const navigate = useNavigate();
-  const [Form, setForm] = useState({name: '', prompt: '', photo: ''});
+  const [Form, setForm] = useState({name: '', prompt: 'an armchair in the shape of an avocado', photo: ''});
   const [generatingImage, setGeneratingImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
-
   }
 
   const handleChange = (e) => {
-
+    setForm({...Form, [e.target.name]: e.target.value});
   }
 
   const handleSurpriseMe = () => {
-
+    const randomPrompt = getRandomPrompt(Form.prompt);
+    setForm({...Form, prompt: randomPrompt })
   }
 
   const generateImage = () => {
-
+    
   }
 
   return (
@@ -46,8 +46,8 @@ const CreatePost = () => {
           <FormFields 
             labelName="Prompt" 
             type="text" 
-            name="Prompt" 
-            placeholder="an armchair in the shape of an avocado" 
+            name="Prompt"
+            placeholder={Form.prompt} 
             value={Form.prompt} 
             handlechange={handleChange} 
             isSurpriseMe

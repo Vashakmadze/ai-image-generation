@@ -1,7 +1,6 @@
 import React from 'react'
 
 function FormFields({labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe }) {
-  console.log(labelName)
   return (
     <div>
       <div className='gap-2 mb-2'>
