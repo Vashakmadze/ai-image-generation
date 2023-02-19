@@ -25,7 +25,7 @@ const CreatePost = () => {
         })
 
         await response.json();
-        navigate('/');
+        navigate('/ai-image-generation');
       } catch (error) {
         alert(error);
       } finally {
