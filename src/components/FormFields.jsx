@@ -24,7 +24,7 @@ function FormFields({labelName, type, name, placeholder, value, handleChange, is
           placeholder={placeholder} 
           onChange={handleChange} 
           required 
-          className='bg-gray-50 border-gray-300 
+          className='bg-gray-50 border mt-2 border-gray-300 
           text-gray-900 text-sm rounder-lg 
           focus:ring-[#4649ff] focus:border-[#4649ff] 
           outline-none block w-full p-3'/>
