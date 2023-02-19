@@ -52,13 +52,13 @@ const CreatePost = () => {
         const response = await fetch('https://ai-image-generation-server.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-type': "application/json",
           },
-          body: JSON.stringify({prompt: Form.prompt })
+          body: JSON.stringify({
+            prompt: Form.prompt, 
+          })
         })
-
         const data = await response.json();
-
         setForm({...Form, photo: `data:image/jpeg;base64,${data.photo}`})
       } catch (error) {
         alert(error);
