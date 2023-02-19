@@ -6,6 +6,6 @@ import RenderCards from "./RenderCards";
 export {
     Card,
     FormFields,
-    Loader,
-    RenderCards
+    RenderCards,
+    Loader
 }

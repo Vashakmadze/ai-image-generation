@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormFields({labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe }) {
+function FormFields({labelName, type, name, placeholder, value, onChange, isSurpriseMe, handleSurpriseMe }) {
   return (
     <div>
       <div className='gap-2 mb-2'>
@@ -21,7 +21,8 @@ function FormFields({labelName, type, name, placeholder, value, handleChange, is
           id={name} 
           name={name} 
           placeholder={placeholder} 
-          onChange={handleChange} 
+          value={value}
+          onChange={onChange} 
           required 
           className='bg-gray-50 border mt-2 border-gray-300 
           text-gray-900 text-sm rounder-lg 

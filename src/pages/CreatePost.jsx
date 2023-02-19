@@ -6,11 +6,12 @@ import { FormFields, Loader } from '../components';
 
 const CreatePost = () => {
   const navigate = useNavigate();
-  const [Form, setForm] = useState({name: '', prompt: 'an armchair in the shape of an avocado', photo: ''});
+  const [Form, setForm] = useState({name: '', prompt: '', photo: ''});
   const [generatingImage, setGeneratingImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
   }
 
   const handleChange = (e) => {
@@ -42,14 +43,14 @@ const CreatePost = () => {
             name="name" 
             placeholder="John Doe" 
             value={Form.name} 
-            handlechange={handleChange}/>
+            onChange={handleChange}/>
           <FormFields 
             labelName="Prompt" 
             type="text" 
-            name="Prompt"
-            placeholder={Form.prompt} 
+            name="prompt"
+            placeholder={"an armchair in the shape of an avocado"} 
             value={Form.prompt} 
-            handlechange={handleChange} 
+            onChange={handleChange} 
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}/>
 
