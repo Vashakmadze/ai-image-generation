@@ -5,7 +5,21 @@ import { Loader, Card, FormFields, RenderCards } from "../components/index";
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
-  const [searchText, setSearchText] = useState("")
+  const [searchText, setSearchText] = useState("");
+  const [results, setResults] = useState(null);
+  const [searchTimeout, setSearchTimeout] = useState(null);
+
+  const handleSarch = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+    setSearchTimeout(
+      setTimeout(() => {
+        const result = allPosts.filter((image) => image.name.toLowerCase().includes(searchText.toLowerCase()) || image.prompt.toLowerCase().includes(searchText.toLowerCase()));
+  
+        setResults(result);
+      }, 500)
+    )
+  }
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -43,7 +57,13 @@ const Home = () => {
         </p>
       </div>
       <div className='mt-16'>
-        <FormFields />
+        <FormFields
+        labelName={"Search Posts"}
+        type="text" 
+        name="text"
+        placeholder="Search images"
+        value={searchText}
+        onChange={handleSarch}/>
       </div>
       <div className='mt-10'>
         {loading ? (
@@ -57,7 +77,7 @@ const Home = () => {
         )}
         <div className='grid lg:gird-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3'>
           {searchText ? (
-            <RenderCards data={allPosts} title="No Search Results found" />
+            <RenderCards data={results} title="No Search Results found" />
           ) : (
             <RenderCards data={allPosts} title="No Posts Found" />
           )}
