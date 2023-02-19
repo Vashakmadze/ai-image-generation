@@ -10,8 +10,30 @@ const CreatePost = () => {
   const [generatingImage, setGeneratingImage] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if(Form.prompt && Form.photo) {
+      setLoading(true);
+
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/post', {
+          method: "POST",
+          headers: {
+            'Content-type': "application/json",
+          },
+          body: JSON.stringify(Form)
+        })
+
+        await response.json();
+        navigate('/');
+      } catch (error) {
+        alert(error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      alert("Please enter prompt and then generate the image!");
+    }
   }
 
   const handleChange = (e) => {
